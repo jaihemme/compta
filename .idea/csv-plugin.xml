@@ -24,6 +24,13 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="/ODIR/BCF_CAMT053_040122-norm.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="/ODIR/BCF_CAMT053_311021-norm.csv-octobre.csv">
           <value>
             <Attribute>
@@ -32,6 +39,13 @@
           </value>
         </entry>
         <entry key="/ODIR/Revolut-CHF-2021-11-01_2021-11-30_fr-ch_657162-norm.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/ODIR/Revolut-CHF-2022-01-01_2022-01-31_fr-ch_23403b-norm.csv">
           <value>
             <Attribute>
               <option name="separator" value=";" />
@@ -60,6 +74,13 @@
           </value>
         </entry>
         <entry key="/ODIR/TC_2021-09-norm.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/ODIR/TC_2022-01-norm.csv">
           <value>
             <Attribute>
               <option name="separator" value=";" />

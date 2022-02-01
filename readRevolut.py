@@ -31,14 +31,15 @@ try:
             date = row['Started Date']
             Date = date[:19] + ' +0100'
             Source = 'Revolut'
-            Texte = row['Description']
+            Destinataire = row['Description']
             Texte2 = row['Type']
             Montant = row['Amount'].replace('.', ',')
             Currency = row['Currency']
             Solde = row['Balance'].replace('.', ',')
-            Categorie = env.set_categorie(Texte)
+            Titre, Categorie = env.set_titre_categorie(Destinataire, Montant)
+            Usage = ''
 
-            transaction = [Date, Source, Texte, Texte2, Montant, Solde, Categorie]
+            transaction = [Date, Source, Titre, Destinataire, Usage, Montant, Solde, Categorie]
             transactions.append(transaction)
 
 except FileNotFoundError:

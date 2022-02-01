@@ -13,72 +13,23 @@
 # . BkToCstmrStmt/Stmt/Bal/Dt --> date
 # root.findall('.//Ntry', ns):
 # . BookgDt/Dt --> Date (csv)
-# . ValDt/Dt --> date
-# . Amt --> Montant /csv)
+# . ValDt/Dt --> ValDt --> Usage, précision pour opérations banquaires
+# . Amt --> Montant (csv)
 # . CdtDbtInd = 'CRDT' ou 'DBIT' --> signe +/- de Montant
-# . AddtlNtryInf --> Texte + Texte2 (csv)
-# . NtryDtls/Btch/NbOfTxs --> nombre de transactions batch (none ou 1 et +)
-# . if NbOfTxs>1: ntry.findall('NtryDtls/TxDtls', ns):
+# . AddtlNtryInf --> Destinataire + Usage
+# . NtryDtls/Btch/NbOfTxs --> nombre de transactions batch (none ou 1+)
+# . if NbOfTxs>0: ntry.findall('NtryDtls/TxDtls', ns):
 # . . Amt --> Montant
 # . . CdtDbtInd = 'CRDT' ou 'DBIT' --> signe +/- de Montant
-# . . RltdPties/Cdtr/Nm --> créancier --> Texte
-# . . RmtInf/Ustrd --> commentaire --> Texte
-# . . AddtlTxInf --> Texte + créancier + commentaire (csv)
+# . . AddtlTxInf --> Destinataire + Usage
+# . . RltdPties/Cdtr/Nm --> créancier --> Destinataire (si e-banking)
 
 import argparse
 import csv
 import env
 from xml.etree.ElementTree import parse
 from decimal import Decimal
-import string
 import re
-
-
-def set_montant(element, solde):
-    sign = ''
-    montant: str = element.findtext('Amt', None, ns)  # montant, p.ex 12.3
-    if element.findtext('CdtDbtInd', None, ns) == 'CRDT':
-        sign = '+'  # crédit
-    if element.findtext('CdtDbtInd', None, ns) == 'DBIT':
-        sign = '-'  # débit
-    montant = sign + montant  # ajoute le signe comme prefixe
-    solde = solde + Decimal(montant)  # augmente le solde
-    _solde = solde  # mise à jour de la variable globale
-
-    # formattage, remplace le point décimal par une virgule
-    montant = montant.replace('.', ',')
-    solde = '{:.2f}'.format(solde).replace('.', ',')
-
-    return [montant, solde, _solde]
-
-
-def set_texte(element, tag):
-    t: str = element.findtext(tag, None, ns)
-
-    # corrige un BUG de données mal encodées
-    if SOURCE == 'VZ':
-        t = ''.join(filter(lambda x: x in string.printable, t))
-        t = re.sub('Dbit', 'Débit', t)
-        t = re.sub('Maracher', 'Maraîcher', t)
-
-    # ajoute une précision
-    if 'Wingo' in t:
-        _ = Montant.split(sep=',')  # retour au point décimal
-        if Decimal(_[0]) < -40:
-            t = re.sub('Wingo', 'Wingo internet', t)
-        else:
-            t = re.sub('Wingo', 'Wingo mobile', t)
-
-    # ajoute plus d'infos aux transaction
-    if tag == 'AddtlTxInf':
-        t = t + ' ' + element.findtext('RltdPties/Cdtr/Nm', None, ns)
-        t = t + ', ' + element.findtext('RmtInf/Ustrd', None, ns)
-
-    texte = env.set_texte(t)
-    texte2 = env.set_texte2(t)
-    texte2 = re.sub('#ValDt#', ValDt, texte2)
-
-    return [texte, texte2]
 
 
 parser = argparse.ArgumentParser()
@@ -104,7 +55,7 @@ try:
 
     # get the parent tag
     root = tree.getroot()
-    ns = {'': 'urn:iso:std:iso:20022:tech:xsd:camt.053.001.04'}  # global namespace
+    ns = env.ns  # global namespace
 
     banque = root.findtext('BkToCstmrStmt/Stmt/Acct/Svcr/FinInstnId/Nm', None, ns)
     bic = root.findtext('BkToCstmrStmt/Stmt/Acct/Svcr/FinInstnId/BICFI', None, ns)
@@ -130,27 +81,28 @@ try:
     SOLDE: Decimal = Decimal(root.findtext('BkToCstmrStmt/Stmt/Bal/Amt', None, ns))
 
     for ntry in root.findall('.//Ntry', ns):
-        Date, Source, Texte, Texte2, Montant, Solde, Categorie = [' ', SOURCE, ' ', ' ', 0, 0, ' ']
         transaction = []
-
         Date = ntry.findtext('BookgDt/Dt', None, ns)  # format aaaa-mm-jj
         date = ntry.findtext('ValDt/Dt', None, ns)
         ValDt = date[8:]+'.'+date[5:7]+'.'+date[0:4]  # date valeur en format jj.mm.aaaa
 
         NbOfTxs = ntry.findtext('NtryDtls/Btch/NbOfTxs', None, ns)
+        print('WARNING - NbOfTxs:', NbOfTxs, Date, ntry.findtext('AddtlNtryInf', None, ns))
         # traitement des batchs multiples
-        if NbOfTxs is not None and NbOfTxs > '1':
-            print('WARNING - NbOfTxs:', NbOfTxs, Date, ntry.findtext('AddtlNtryInf', None, ns))
+        if NbOfTxs is not None:
             for txs in ntry.findall('NtryDtls/TxDtls', ns):
-                Montant, Solde, SOLDE = set_montant(txs, SOLDE)
-                Texte, Texte2 = set_texte(txs, 'AddtlTxInf')
-                transaction = [Date, Source, Texte, Texte2, Montant, Solde, Categorie]
+                Montant, Solde, SOLDE = env.set_montant(txs, SOLDE)
+                Destinataire, Usage = env.set_destinataire_usage(txs)
+                Usage = re.sub('#ValDt#', ValDt, Usage)
+                Titre, Categorie = env.set_titre_categorie(Destinataire, Montant)
+                transaction = [Date, SOURCE, Titre, Destinataire, Usage, Montant, Solde, Categorie]
                 transactions.append(transaction)
         else:
-            Montant, Solde, SOLDE = set_montant(ntry, SOLDE)
-            Texte, Texte2 = set_texte(ntry, 'AddtlNtryInf')
-            Categorie = env.set_categorie(Texte)
-            transaction = [Date, Source, Texte, Texte2, Montant, Solde, Categorie]
+            Montant, Solde, SOLDE = env.set_montant(ntry, SOLDE)
+            Destinataire, Usage = env.set_destinataire_usage(ntry)
+            Usage = re.sub('#ValDt#', ValDt, Usage)
+            Titre, Categorie = env.set_titre_categorie(Destinataire, Montant)
+            transaction = [Date, SOURCE, Titre, Destinataire, Usage, Montant, Solde, Categorie]
             transactions.append(transaction)
 
 except FileNotFoundError:
