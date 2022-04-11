@@ -87,6 +87,20 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="/ODIR/TC_2022-02-norm.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/ODIR/TC_2022-04-norm.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="/ODIR/VZ_CM53D_2021-09-06_05-36-norm.csv">
           <value>
             <Attribute>
@@ -102,13 +116,6 @@
           </value>
         </entry>
         <entry key="/ODIR/VZ_CM53D_2022-01-02_04-25-norm.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value=";" />
-            </Attribute>
-          </value>
-        </entry>
-        <entry key="/data.csv">
           <value>
             <Attribute>
               <option name="separator" value=";" />

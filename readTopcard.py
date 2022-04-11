@@ -36,7 +36,7 @@ try:
                 date = row["Date d'achat"]
             Date = datetime.strptime(date, '%d.%m.%Y').strftime('%Y-%m-%d')
             Categorie = 'todo'
-            Destinataire: str = row['Texte comptable'][:25].rstrip(' ')
+            Destinataire: str = row['Texte comptable'][:38].rstrip(' ')
             Destinataire = Destinataire.replace('CHE', '')
             Titre = row['Secteur']
             Usage = row['Titulaire du compte / de la carte']
@@ -49,13 +49,18 @@ try:
             if value:
                 Montant = '{:.2f}'.format(Decimal(value))  # 2 chiffres après la virgule
             if Destinataire == 'Report de solde':
-                Titre = 'Transfert, report de solde'
-                Destinataire = 'TOPCARD SERVICE AG'
+                Titre = 'Transfert, report de solde (facture)'
+                Destinataire = 'TopCard Service AG'
                 Usage = 'Report de solde ' + Montant
                 Solde = Montant  # le solde est calculé dans la prochaine boucle
                 solde = Solde
                 Montant = '0'
-                Categorie = ''
+                Categorie = 'Transfert'
+            if Destinataire == 'PAIEMENT PAR RECOUVREMENT DIR.':
+                Titre = 'Transfert, TOPCARD'
+                Destinataire = 'Compte VZ'
+                Usage = 'Paiement par recouvrement LSV+'
+                Categorie = 'Transfert'
             if Usage == 'GEORG MARFURT':
                 Usage = 'Carte Yogi ' + row["Date d'achat"]
             if Usage == 'MARIE MARFURT':

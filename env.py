@@ -38,7 +38,7 @@ CATEGORIES = [
     ('Maison, internet, iCloud espace disque 200 G', 'apple.com/bill'),
     ('Maison, jardin', 'schilliger', 'landi', 'garden centre', 'bauhaus'),
     ('Maison, mobile', 'mobile', 'm-budget'),
-    ('Maison, ménage', 'pfister', 'renevey'),
+    ('Maison, ménage', 'pfister', 'renevey', 'hpschweizgm'),
     ('Maison, électricité', 'groupe e'),
     ('Rentes, caisse de prévoyance du personnel', 'caisse de prévoyance du personnel'),
     ('Rentes, pensionskasse', 'pensionskasse'),
@@ -49,7 +49,7 @@ CATEGORIES = [
     ('Santé, pharmacie', 'sunstor', 'pharmacie'),
     ('Transfert', 'report'),
     ('Transfert, Revolut', 'revolut'),
-    ('Transfert, TOPCARD', 'topcard'),
+    ('Transfert, TOPCARD', 'topcard', 'compte vz'),
     ('Transfert, TWINT Yogi', '+41774504204'),
     ('Voiture, assurances', 'pool', 'assurances'),
     ('Voiture, benzine', 'station', 'migrol', 'bugnon', 'miniprix'),
@@ -57,7 +57,7 @@ CATEGORIES = [
     ('Voiture, parking', 'parking'),
     ('Voiture, pneus', 'pneus'),
     ('Voiture, service', 'limat'),
-    ('Vêtements', 'pkz', 'decathlon', 'ochsner', 'h & m', 'angéloz', 'manor', 'esprit')
+    ('Vêtements', 'pkz', 'decathlon', 'ochsner', 'h & m', 'angéloz', 'manor', 'esprit', 'benetton')
 ]
 
 # Destinataire = re.sub(pattern[0], replace[1], pour chaque élément)
