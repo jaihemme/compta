@@ -10,6 +10,13 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="/ODIR/BCF_CAMT053_010622-norm.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="/ODIR/BCF_CAMT053_011221-norm.csv">
           <value>
             <Attribute>

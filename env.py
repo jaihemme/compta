@@ -109,7 +109,7 @@ REGEX2 = (
 ns = {'': 'urn:iso:std:iso:20022:tech:xsd:camt.053.001.04'}  # global namespace
 
 
-def set_montant(element, solde):
+def set_montant(element, solde, ttlamt):
     sign = ''
     montant: str = element.findtext('Amt', None, ns)  # montant, p.ex 12.3
     if element.findtext('CdtDbtInd', None, ns) == 'CRDT':
@@ -117,6 +117,12 @@ def set_montant(element, solde):
     if element.findtext('CdtDbtInd', None, ns) == 'DBIT':
         sign = '-'  # débit
     montant = sign + montant  # ajoute le signe comme prefixe
+
+    # traitement foireux des devises étrangères par la BCF
+    if ttlamt is not None and ttlamt != montant:
+        print('WARNING - BCF, montants différents, problème avec devise étrangère', ttlamt, montant)
+        montant = ttlamt
+
     solde = solde + Decimal(montant)  # augmente le solde
     _solde = solde  # mise à jour de la variable globale
 
