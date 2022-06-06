@@ -8,7 +8,10 @@ DIR = '/Users/yogi/Library/Mobile Documents/com~apple~CloudDocs/Factures/'
 ODIR = '/Users/yogi/Library/Mobile Documents/com~apple~CloudDocs/Factures/-Compta/'
 # transaction normalisée (nouvelle version décembre 2021)
 HEADER = ['Date', 'Source', 'Titre', 'Destinataire', 'Usage', 'Montant', 'Solde', 'Catégorie']
+# (catégorie, tag(s) en minuscules, ...), le premier cas trouvé prime
 CATEGORIES = [
+    ('Maison, jardin', 'schilliger', 'landi', 'garden centre', 'bauhaus', 'coop-2018 matran b+l', 'do it garden'),
+    ('Santé', 'coiffeuse'),
     ('Alimentation, Boucherie', 'boucherie'),
     ('Alimentation, Coop', 'coop'),
     ('Alimentation, Denner', 'denner'),
@@ -36,13 +39,11 @@ CATEGORIES = [
     ('Maison, hypothèques', 'hypothekenzentrum'),
     ('Maison, internet', 'internet', 'wingo'),
     ('Maison, internet, iCloud espace disque 200 G', 'apple.com/bill'),
-    ('Maison, jardin', 'schilliger', 'landi', 'garden centre', 'bauhaus'),
     ('Maison, mobile', 'mobile', 'm-budget'),
     ('Maison, ménage', 'pfister', 'renevey', 'hpschweizgm'),
     ('Maison, électricité', 'groupe e'),
     ('Rentes, caisse de prévoyance du personnel', 'caisse de prévoyance du personnel'),
     ('Rentes, pensionskasse', 'pensionskasse'),
-    ('Santé', 'coiffeuse'),
     ('Santé, KPT', 'kpt'),
     ('Santé, dentiste', 'laurent juvet', 'helvident'),
     ('Santé, médecin', 'boscacci', 'promed'),
