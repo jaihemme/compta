@@ -9,7 +9,7 @@ import env
 
 
 IDIR = env.DIR + "Revolut/"
-print(IDIR)
+# print(IDIR)
 
 parser = argparse.ArgumentParser()
 parser.add_argument("filename", help="csv IFILE from Revolut (path is fixed)")
@@ -32,12 +32,22 @@ try:
             Date = date[:19] + ' +0100'
             Source = 'Revolut'
             Destinataire = row['Description']
-            Texte2 = row['Type']
             Montant = row['Amount'].replace('.', ',')
             Currency = row['Currency']
             Solde = row['Balance'].replace('.', ',')
             Titre, Categorie = env.set_titre_categorie(Destinataire, Montant)
-            Usage = ''
+            Usage = row['Type']
+            if Usage == 'EXCHANGE' and Destinataire == 'Exchanged to EUR':
+                Titre = 'Transfert, Revolut, Vente de CHF pour EUR'
+                Categorie = 'Transfert'
+            if Usage == 'EXCHANGE' and Destinataire == 'Exchanged to CHF':
+                Titre = 'Transfert, Revolut, Vente de EUR pour CHF'
+                Categorie = 'Transfert'
+            if Usage == 'TOPUP' and Destinataire == 'Top-Up by *6505':
+                Titre = 'Transfert, Revolut, virement de VZ'
+                Destinataire = 'Carte TOPCARD'
+                Categorie = 'Transfert'
+
 
             transaction = [Date, Source, Titre, Destinataire, Usage, Montant, Solde, Categorie]
             transactions.append(transaction)
