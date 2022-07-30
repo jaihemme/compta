@@ -24,7 +24,7 @@ CATEGORIES = [
     ('Impôts, AVS', 'caisse de compensation'),
     ('Impôts, IFD', 'ifd'),
     ('Impôts, cantonaux', 'contributions'),
-    ('Impôts, communaux', 'cottens'),
+    ('Impôts, communaux', 'commune de cottens'),
     ('Loisirs, cinéma', 'st-paul'),
     ('Loisirs, cinéma', 'cinéma', 'arena', 'rex'),
     ('Loisirs, exposition', 'expo', 'fondation'),
@@ -97,7 +97,13 @@ REGEX = (
      '^Votre ordre de paiement .*', 'Ordre e-banking'],
     # example: Ordre e-banking 990000004057599200081544690
     ['^Ordre e-banking (.*)$', '\\1',
-     '^(Ordre e-banking .*)$', '\\1']
+     '^(Ordre e-banking .*)$', '\\1'],
+    # example: Achats carte de dbit 27.06.2022 10:56 Migros MMM Avry Numro de carte: 5352220006123662
+    ['^Achats carte de débit .* [0-9]{2}:[0-9]{2} (.*) Numéro de carte: .*', '\\1',
+     '(^Achats carte de débit .* [0-9]{2}:[0-9]{2}) .* Numéro de carte: (.*)', '\\1, \\2'],
+    # Bancomat 26.06.2022 09:05 COTTENS Num�ro de carte: 5352220006121518
+    ['^Bancomat .* .* (.*) Numéro de carte: .*', 'Bancomat \\1',
+     '^Bancomat (.* .*) (.*) Numéro de carte: (.*)', 'Prélèvement bancomat \\2, \\1, Carte: \\3']
 )
 
 # 2ème remplacement pour Texte
@@ -171,13 +177,10 @@ def set_destinataire_usage(element):
 
 
 def clean_destinataire(texte):
-    # corrige un BUG de données mal encodées
     # http://www.unicode-symbol.com/u/FFFD.html
-    t = re.sub('\N{replacement character}', '', texte)
-    t = re.sub('Maracher', 'Maraîcher', t)
-    t = re.sub('Dbit', 'Débit', t)
+    # BUG de données mal encodées chez VZ semble corrigé en juillet 2022
 
-    t0 = t
+    t0 = texte
     for exp in REGEX:
         t = re.sub(exp[0], exp[1], t0)
         if t != t0:
@@ -190,13 +193,10 @@ def clean_destinataire(texte):
 
 
 def clean_usage(texte):
-    # corrige un BUG de données mal encodées
     # http://www.unicode-symbol.com/u/FFFD.html
-    t = re.sub('\N{replacement character}', '', texte)
-    t = re.sub('Dbit', 'Débit', t)
-    t = re.sub('Maracher', 'Maraîcher', t)
+    # BUG de données mal encodées chez VZ semble corrigé en juillet 2022
 
-    t0 = t
+    t0 = texte
     for exp in REGEX:
         t = re.sub(exp[2], exp[3], t0)
         if t != t0:
@@ -211,7 +211,9 @@ def clean_usage(texte):
 
 def clean_maestro(texte):
     texte = re.sub('70097416', 'Marie', texte)
+    texte = re.sub('[0-9]{12}3662', 'Marie', texte)
     texte = re.sub('70097499', 'Yogi', texte)
+    texte = re.sub('[0-9]{12}1518', 'Yogi', texte)
     return texte
 
 
