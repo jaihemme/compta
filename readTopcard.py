@@ -13,7 +13,7 @@ def get_date(record):
 
 
 IDIR = env.DIR + "TopCard/"
-print(IDIR)
+# print(IDIR)
 
 parser = argparse.ArgumentParser()
 parser.add_argument("filename", help="csv IFILE from Topcard (path is fixed)")

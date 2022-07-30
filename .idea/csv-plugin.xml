@@ -66,6 +66,13 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="/ODIR/Revolut-EUR-2022-06-01_2022-06-30_fr-ch_40b73c-norm.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="/ODIR/Revolut-EUR-Relevé-1 janv. 2021 à 30 sept. 2021-norm.csv">
           <value>
             <Attribute>
@@ -123,6 +130,13 @@
           </value>
         </entry>
         <entry key="/ODIR/VZ_CM53D_2022-01-02_04-25-norm.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/ODIR/VZ_CM53D_2022-07-01_07-33-norm.csv">
           <value>
             <Attribute>
               <option name="separator" value=";" />

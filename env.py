@@ -1,5 +1,4 @@
 import re
-import string
 from datetime import datetime
 from decimal import Decimal
 
@@ -89,7 +88,7 @@ REGEX = (
     ['^Débit e-banking (.*)$', '\\1',
      '^(Débit e-banking) .*', '\\1'],
     # example: Débit LSV+ TOPCARD SERVICE AG
-    ['^Débit LSV\+ (.*)$', '\\1',
+    ['^Débit LSV\\+ (.*)$', '\\1',
      '^(Débit LSV\\+) .*', '\\1'],
     # example: Votre ordre de paiement Electro Renevey SA
     # unification avec le terme 'ordre e-banking'
@@ -239,7 +238,6 @@ def set_titre_categorie(destinataire, montant):
         titre = re.sub('internet', 'mobile', titre)
     if 'KPT' in destinataire and valeur > 974:
         titre = titre + ', prime'
-
 
     return titre, categorie
 
