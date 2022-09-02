@@ -39,7 +39,8 @@ CATEGORIES = [
     ('Maison, internet', 'internet', 'wingo'),
     ('Maison, internet, iCloud espace disque 200 G', 'apple.com/bill'),
     ('Maison, mobile', 'mobile', 'm-budget'),
-    ('Maison, ménage', 'pfister', 'renevey', 'hpschweizgm'),
+    ('Maison, ménage, abonnement imprimante HP', 'hp instant ink', 'hpschweizgm'),
+    ('Maison, ménage', 'pfister', 'renevey'),
     ('Maison, électricité', 'groupe e'),
     ('Rentes, caisse de prévoyance du personnel', 'caisse de prévoyance du personnel'),
     ('Rentes, pensionskasse', 'pensionskasse'),
@@ -222,7 +223,7 @@ def set_titre_categorie(destinataire, montant):
         for _ in c:
             if _ in destinataire.lower():
                 titre = c[0]
-                categorie = re.sub('(.*), .*', '\\1', titre)
+                categorie = re.sub('(.*?), .*', '\\1', titre)
                 break
         if titre > '':
             break
