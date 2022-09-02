@@ -43,6 +43,10 @@ try:
             if Usage == 'EXCHANGE' and Destinataire == 'Exchanged to CHF':
                 Titre = 'Transfert, Revolut, Vente de EUR pour CHF'
                 Categorie = 'Transfert'
+            if Usage == 'TOPUP' and Destinataire == 'Top-Up by *1518':
+                Titre = 'Transfert, Revolut, virement de VZ'
+                Destinataire = 'Carte VZ Yogi'
+                Categorie = 'Transfert'
             if Usage == 'TOPUP' and Destinataire == 'Top-Up by *6505':
                 Titre = 'Transfert, Revolut, virement de VZ'
                 Destinataire = 'Carte TOPCARD'
