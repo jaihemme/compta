@@ -87,11 +87,12 @@ try:
         ValDt = date[8:]+'.'+date[5:7]+'.'+date[0:4]  # date valeur en format jj.mm.aaaa
 
         NbOfTxs = ntry.findtext('NtryDtls/Btch/NbOfTxs', None, ns)
+        SubFmlyCd = ntry.findtext('BkTxCd/Domn/Fmly/SubFmlyCd', None, ns)  # SALA: identification des rentes problématiques
         MONTANT = None
 
         print('WARNING - NbOfTxs:', NbOfTxs, Date, ntry.findtext('AddtlNtryInf', None, ns))
         # traitement des batchs multiples
-        if NbOfTxs is not None:
+        if NbOfTxs is not None and SubFmlyCd != 'SALA':
             # traitement foireux des devises étrangères par la BCF (prendre TtlAmt comme montant)
             if NbOfTxs == "1":
                 if ntry.findtext('CdtDbtInd', None, ns) == 'CRDT':
@@ -105,11 +106,18 @@ try:
                 Titre, Categorie = env.set_titre_categorie(Destinataire, Montant)
                 transaction = [Date, SOURCE, Titre, Destinataire, Usage, Montant, Solde, Categorie]
                 transactions.append(transaction)
+            if not transaction:  # illogique (puisque , c'est la cas des paiements AVS
+                print("!!!!! pas de transaction")
         else:
             Montant, Solde, SOLDE = env.set_montant(ntry, SOLDE, None)
             Destinataire, Usage = env.set_destinataire_usage(ntry)
             Usage = re.sub('#ValDt#', ValDt, Usage)
             Titre, Categorie = env.set_titre_categorie(Destinataire, Montant)
+            if SubFmlyCd == 'SALA':  # correction des rentes avs
+                Titre = "Rente, AVS"
+                Categorie = "Rente"
+                Destinataire = "Caisse de compensation, Fribourg"
+                Usage = "Bonification"
             transaction = [Date, SOURCE, Titre, Destinataire, Usage, Montant, Solde, Categorie]
             transactions.append(transaction)
 
