@@ -9,7 +9,11 @@ ODIR = '/Users/yogi/Library/Mobile Documents/com~apple~CloudDocs/Factures/-Compt
 HEADER = ['Date', 'Source', 'Titre', 'Destinataire', 'Usage', 'Montant', 'Solde', 'Catégorie']
 # (catégorie, tag(s) en minuscules, ...), le premier cas trouvé prime
 CATEGORIES = [
+    # Ca'puccini avant coop
+    ('Loisirs, tea-room', 'tea-room', 'puccini', 'pause'),
+    # jardin avant coop et migros (alimentation)
     ('Maison, jardin', 'schilliger', 'landi', 'garden centre', 'bauhaus', 'coop-2018 matran b+l', 'do it garden'),
+    # coiffeuse avant cottens (impôts)
     ('Santé', 'coiffeuse'),
     ('Alimentation, Boucherie', 'boucherie'),
     ('Alimentation, Coop', 'coop'),
@@ -36,11 +40,13 @@ CATEGORIES = [
     ('Loisirs, voyage', 'voyage'),
     ('Maison, assurances', 'etablissement cantonal', 'mobiliar'),
     ('Maison, hypothèques', 'hypothekenzentrum'),
+    # mobile avant internet pour m-budget
+    ('Maison, mobile', 'mobile', 'm-budget'),
     ('Maison, internet', 'internet', 'wingo'),
     ('Maison, internet, iCloud espace disque 200 G', 'apple.com/bill'),
     ('Maison, mobile', 'mobile', 'm-budget'),
     ('Maison, ménage, abonnement imprimante HP', 'hp instant ink', 'hpschweizgm'),
-    ('Maison, ménage', 'pfister', 'renevey'),
+    ('Maison, ménage', 'pfister', 'renevey', 'livique'),
     ('Maison, électricité', 'groupe e'),
     ('Rentes, caisse de prévoyance du personnel', 'caisse de prévoyance du personnel'),
     ('Rentes, pensionskasse', 'pensionskasse'),
