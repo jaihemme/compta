@@ -114,8 +114,8 @@ try:
             Usage = re.sub('#ValDt#', ValDt, Usage)
             Titre, Categorie = env.set_titre_categorie(Destinataire, Montant)
             if SubFmlyCd == 'SALA':  # correction des rentes avs
-                Titre = "Rente, AVS"
-                Categorie = "Rente"
+                Titre = "Rentes, AVS"
+                Categorie = "Rentes"
                 Destinataire = "Caisse de compensation, Fribourg"
                 Usage = "Bonification"
             transaction = [Date, SOURCE, Titre, Destinataire, Usage, Montant, Solde, Categorie]
