@@ -5,6 +5,9 @@
 import argparse
 import csv
 import locale
+import datetime
+import pytz
+
 import env
 
 
@@ -23,30 +26,43 @@ try:
         reader = csv.DictReader(IFILE, delimiter=',')
         transactions = []   # résultat à écrire sur fichier
         locale.setlocale(locale.LC_ALL, 'fr_CH.UTF-8')
+        # Définir les fuseaux horaires GMT et CET/CEST
+        gmt = pytz.timezone('GMT')
+        cet = pytz.timezone('CET')
         # Type,Product,Started Date,Completed Date,Description,Amount,Fee,Currency,State,Balance
         # les heures dans date sont locale GB
         # trié par date mais pas forcéement par heure!
         # balance(=solde) repris tel quel, peut sembler faux si on trie
         for row in reader:
-            date = row['Started Date']
-            Date = date[:19] + ' +0100'
+            date_gmt = row['Started Date']
+            # Convertir la date en objet datetime
+            date_obj = datetime.datetime.strptime(date_gmt, '%Y-%m-%d %H:%M:%S')
+            # Convertir la date en heure locale CET/CEST
+            Date = gmt.localize(date_obj).astimezone(cet).strftime('%Y-%m-%d %H:%M:%S %z')
             Source = 'Revolut'
             Destinataire = row['Description']
-            Montant = row['Amount'].replace('.', ',')
+            fee = row['Fee']
+            # montant = float(row['Amount'].replace(',', '.')) - float(fee.replace(',', '.'))
+            # laisser le montant tel quel, même s'il faut tenir compte des frais  pour le solde
+            montant = float(row['Amount'].replace(',', '.'))
+            Montant = str(montant).replace('.', ',')
             Currency = row['Currency']
             Solde = row['Balance'].replace('.', ',')
             Titre, Categorie = env.set_titre_categorie(Destinataire, Montant)
             Usage = row['Type']
             if Usage == 'EXCHANGE' and Destinataire == 'Exchanged to EUR':
-                Titre = 'Transfert, Revolut, Vente de CHF pour EUR'
+                Titre = 'Transfert, Revolut, Achat de EUR avec CHF'
+                Destinataire = 'Revolut EUR'
                 Categorie = 'Transfert'
             if Usage == 'EXCHANGE' and Destinataire == 'Exchanged to CHF':
-                Titre = 'Transfert, Revolut, Vente de EUR pour CHF'
+                Titre = 'Transfert, Revolut, Achat de CHF avrc EUR'
+                Destinataire = 'Revolut CHF'
                 Categorie = 'Transfert'
             if Usage == 'TOPUP' and Destinataire == 'Payment from Marfurt G. Et Marfurt-noel M.':
                 Titre = 'Transfert, Revolut, virement de VZ'
                 Categorie = 'Transfert'
-
+            if fee != '0.00':
+                Usage += ', frais=' + row['Fee'].replace('.', ',')
 
             transaction = [Date, Source, Titre, Destinataire, Usage, Montant, Solde, Categorie]
             transactions.append(transaction)
@@ -54,7 +70,6 @@ try:
 except FileNotFoundError:
     print("Ce fichier n'existe pas: '" + IFILE + "'")
     exit(1)
-
 
 #  écrire les transactions normalisées sur fichier
 OFILE = env.ODIR + FILE.replace('account-statement_', Source + '-' + Currency + '-').replace('.csv', '-norm.csv')
