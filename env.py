@@ -43,9 +43,9 @@ CATEGORIES = [
     # mobile avant internet pour m-budget
     ('Maison, mobile', 'mobile', 'm-budget'),
     ('Maison, internet', 'internet', 'wingo'),
-    ('Maison, internet, iCloud espace disque 200 G', 'apple.com/bill'),
+    ('Maison, internet, iCloud espace disque 200 G', 'Apple', 'apple.com/bill'),
     ('Maison, mobile', 'mobile', 'm-budget'),
-    ('Maison, ménage, abonnement imprimante HP', 'hp instant ink', 'hpschweizgm'),
+    ('Maison, ménage, abonnement imprimante HP', 'HP', 'hp instant ink', 'hpschweizgm'),
     ('Maison, ménage', 'pfister', 'renevey', 'livique'),
     ('Maison, électricité', 'groupe e'),
     ('Rentes, caisse de prévoyance du personnel', 'caisse de prévoyance du personnel'),
@@ -73,6 +73,9 @@ REGEX = (
     # example: Retrait BM 09:57 CC Matran Numéro de carte: 70097499
     ['^Retrait BM (.{5}) (.*) Numéro de carte: (.*)$', 'Bancomat \\2, \\3',
      '^Retrait BM (.{5}) (.*) Numéro de carte: (.*)$', 'Prélèvement bancomat, \\2, #ValDt# \\1, Carte: \\3'],
+    # example: Retrait BM COTTENS COTTENS CH - 07.01 10:08:56 - xxxxxxxxxxxx8471 - 200 CHF
+    ['^Retrait BM (.*) - (.* .*) - (.*) - .* .*$', 'Bancomat \\1',
+     '^Retrait BM (.*) - (.* .*) - (.*) - .* (.*)$', 'Prélèvement bancomat \\4 du \\2, Carte: \\3'],
     # example: Prélèvement bancomat CHF, COTTENS, 04.09.2021 10:26, Carte: 70097499
     ['^Prélèvement bancomat (.*), (.*), .* Carte: (.*)$', 'Bancomat \\1, \\2',
      '^(Prélèvement bancomat .*, Carte: .*)$', '\\1'],
@@ -109,7 +112,10 @@ REGEX = (
      '(^Achats carte de débit .* [0-9]{2}:[0-9]{2}) .* Numéro de carte: (.*)', '\\1, \\2'],
     # Bancomat 26.06.2022 09:05 COTTENS Num�ro de carte: 5352220006121518
     ['^Bancomat .* .* (.*) Numéro de carte: .*', 'Bancomat \\1',
-     '^Bancomat (.* .*) (.*) Numéro de carte: (.*)', 'Prélèvement bancomat \\2, \\1, Carte: \\3']
+     '^Bancomat (.* .*) (.*) Numéro de carte: (.*)', 'Prélèvement bancomat \\2, \\1, Carte: \\3'],
+    # Paiement - CAL_Bulle_C604, Bulle - 04.01.2023 15:08 - N° carte xxxxxxxxxxxx8471 - 34.50 CHF (BCF depuis 2023)
+    ['^Paiement - (.*) - (.* .*) - N° carte (.*) .*', '\\1',
+     '^Paiement - (.*) - (.* .*) - N° carte (.*) - .*', 'Carte \\3, paiement du \\2']
 )
 
 # 2ème remplacement pour Texte
@@ -186,6 +192,7 @@ def clean_destinataire(texte):
     # http://www.unicode-symbol.com/u/FFFD.html
     # BUG de données mal encodées chez VZ semble corrigé en juillet 2022
 
+    t = ''
     t0 = texte
     for exp in REGEX:
         t = re.sub(exp[0], exp[1], t0)
@@ -202,6 +209,7 @@ def clean_usage(texte):
     # http://www.unicode-symbol.com/u/FFFD.html
     # BUG de données mal encodées chez VZ semble corrigé en juillet 2022
 
+    t = ''
     t0 = texte
     for exp in REGEX:
         t = re.sub(exp[2], exp[3], t0)
@@ -217,9 +225,10 @@ def clean_usage(texte):
 
 def clean_maestro(texte):
     texte = re.sub('70097416', 'Marie', texte)
-    texte = re.sub('[0-9]{12}3662', 'Marie', texte)
+    texte = re.sub(r'\d{4}.{8}3662', 'Marie', texte)
+    texte = re.sub('x{12}8471', 'Marie', texte)
     texte = re.sub('70097499', 'Yogi', texte)
-    texte = re.sub('[0-9]{12}1518', 'Yogi', texte)
+    texte = re.sub(r'\d{4}.{8}1518', 'Yogi', texte)
     return texte
 
 
