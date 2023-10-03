@@ -10,63 +10,7 @@
             </Attribute>
           </value>
         </entry>
-        <entry key="/ODIR/BCF-2021.cleanup.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value=";" />
-            </Attribute>
-          </value>
-        </entry>
-        <entry key="/ODIR/BCF-2021.cleanup.sorted.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value=";" />
-            </Attribute>
-          </value>
-        </entry>
-        <entry key="/ODIR/BCF-2021.cleanup2.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value=";" />
-            </Attribute>
-          </value>
-        </entry>
-        <entry key="/ODIR/BCF-icash.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value=";" />
-            </Attribute>
-          </value>
-        </entry>
-        <entry key="/ODIR/BCF_CAMT053_010622-norm.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value=";" />
-            </Attribute>
-          </value>
-        </entry>
-        <entry key="/ODIR/BCF_CAMT053_011221-norm.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value=";" />
-            </Attribute>
-          </value>
-        </entry>
-        <entry key="/ODIR/BCF_CAMT053_031021-norm.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value=";" />
-            </Attribute>
-          </value>
-        </entry>
-        <entry key="/ODIR/BCF_CAMT053_040122-norm.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value=";" />
-            </Attribute>
-          </value>
-        </entry>
-        <entry key="/ODIR/BCF_CAMT053_311021-norm.csv-octobre.csv">
+        <entry key="/ODIR/BCF_CAMT053_020223-norm.csv">
           <value>
             <Attribute>
               <option name="separator" value=";" />
@@ -80,7 +24,63 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="/ODIR/Revolut-CHF-2021-norm.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="/ODIR/Revolut-CHF-2022-01-01_2022-01-31_fr-ch_23403b-norm.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/ODIR/Revolut-CHF-2022-01-01_2022-03-31_fr-ch_1d9e65-norm.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/ODIR/Revolut-CHF-2022-03-01_2022-06-30_fr-ch_a3b3c5-norm.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/ODIR/Revolut-CHF-2022-03-01_2022-06-30_mod.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/ODIR/Revolut-CHF-2022-06-01_2022-06-30_fr-ch_9816cd-norm-mod.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/ODIR/Revolut-CHF-2022-06-01_2022-06-30_fr-ch_9816cd-norm.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/ODIR/Revolut-CHF-2022-07-01_2022-07-31_fr-ch_edf972-norm.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/ODIR/Revolut-CHF-2022-07-01_2022-07-31_mod.csv">
           <value>
             <Attribute>
               <option name="separator" value=";" />
@@ -101,35 +101,231 @@
             </Attribute>
           </value>
         </entry>
-        <entry key="/ODIR/Revolut-CHF-Relevé-1 janv. 2021 à 30 sept. 2021-norm.csv">
+        <entry key="/ODIR/Revolut-CHF-2022-09-01_2022-10-31_fr-ch_b24c72-norm-mod.csv">
           <value>
             <Attribute>
               <option name="separator" value=";" />
             </Attribute>
           </value>
         </entry>
-        <entry key="/ODIR/Revolut-EUR-2022-06-01_2022-06-30_fr-ch_40b73c-norm.csv">
+        <entry key="/ODIR/Revolut-CHF-2022-09-01_2022-10-31_fr-ch_b24c72-norm.csv">
           <value>
             <Attribute>
               <option name="separator" value=";" />
             </Attribute>
           </value>
         </entry>
-        <entry key="/ODIR/Revolut-EUR-2022-08-01_2022-09-30_fr-ch_472129-norm-mod.csv">
+        <entry key="/ODIR/Revolut-CHF-2022-10-01_2022-11-30_fr-ch_4ca695-norm-mod.csv">
           <value>
             <Attribute>
               <option name="separator" value=";" />
             </Attribute>
           </value>
         </entry>
-        <entry key="/ODIR/Revolut-EUR-Relevé-1 janv. 2021 à 30 sept. 2021-norm.csv">
+        <entry key="/ODIR/Revolut-CHF-2022-10-01_2022-11-30_fr-ch_4ca695-norm.csv">
           <value>
             <Attribute>
               <option name="separator" value=";" />
             </Attribute>
           </value>
         </entry>
-        <entry key="/ODIR/TC_2021-01-norm.csv">
+        <entry key="/ODIR/Revolut-CHF-2022-11-01_2022-11-30_fr-ch_e1cf28-norm-mod.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/ODIR/Revolut-CHF-2022-11-01_2022-11-30_fr-ch_e1cf28-norm.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/ODIR/Revolut-CHF-2022-12-01_2023-01-31_fr-ch_1100c1-norm-mod.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/ODIR/Revolut-CHF-2022-12-01_2023-01-31_fr-ch_1100c1-norm.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/ODIR/Revolut-CHF-2023-01-01_2023-02-28_fr-ch_c1e05f-norm-mod.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/ODIR/Revolut-CHF-2023-01-01_2023-02-28_fr-ch_c1e05f-norm.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/ODIR/Revolut-CHF-2023-02-01_2023-02-28_fr-ch_f06909-norm-mod.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/ODIR/Revolut-CHF-2023-02-01_2023-02-28_fr-ch_f06909-norm.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/ODIR/Revolut-CHF-2023-03-01_2023-03-31_fr-ch_442105-norm-mod.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/ODIR/Revolut-CHF-2023-03-01_2023-03-31_fr-ch_442105-norm.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/ODIR/Revolut-CHF-2023-04-01_2023-05-31_fr-ch_b24785-norm-mod.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/ODIR/Revolut-CHF-2023-04-01_2023-05-31_fr-ch_b24785-norm.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/ODIR/Revolut-CHF-2023-05-01_2023-06-30_fr-ch_f6f3fe-norm-mod.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/ODIR/Revolut-CHF-2023-05-01_2023-06-30_fr-ch_f6f3fe-norm.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/ODIR/Revolut-CHF-2023-06-01_2023-07-31_fr-ch_48a643-norm-mod.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/ODIR/Revolut-CHF-2023-06-01_2023-07-31_fr-ch_48a643-norm.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/ODIR/Revolut-CHF-2023-07-01_2023-08-31_fr-ch_1fff58-norm-mod.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/ODIR/Revolut-CHF-2023-07-01_2023-08-31_fr-ch_1fff58-norm.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/ODIR/Revolut-CHF-2023-08-01_2023-09-30_fr-ch_339a94-norm-mod.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/ODIR/Revolut-CHF-2023-08-01_2023-09-30_fr-ch_339a94-norm.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/ODIR/Revolut-EUR-2023-02-01_2023-02-28_fr-ch_0fe46b-norm.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/ODIR/Revolut-EUR-2023-03-01_2023-03-31_fr-ch_1acd38-norm-mod.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/ODIR/Revolut-EUR-2023-03-01_2023-03-31_fr-ch_1acd38-norm.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/ODIR/Revolut-EUR-2023-05-01_2023-06-30_fr-ch_e1f7dd-norm-mod.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/ODIR/Revolut-EUR-2023-06-01_2023-07-31_fr-ch_8c0132-norm.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/ODIR/TC_2021-05-norm.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/ODIR/TC_2021-06-norm.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/ODIR/TC_2021-07-norm.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/ODIR/TC_2021-08-norm.csv">
           <value>
             <Attribute>
               <option name="separator" value=";" />
@@ -143,49 +339,182 @@
             </Attribute>
           </value>
         </entry>
-        <entry key="/ODIR/TC_2022-01-norm.csv">
+        <entry key="/ODIR/TC_2021-11-norm.csv">
           <value>
             <Attribute>
               <option name="separator" value=";" />
             </Attribute>
           </value>
         </entry>
-        <entry key="/ODIR/TC_2022-02-norm.csv">
+        <entry key="/ODIR/TC_2021-norm.csv">
           <value>
             <Attribute>
               <option name="separator" value=";" />
             </Attribute>
           </value>
         </entry>
-        <entry key="/ODIR/TC_2022-04-norm.csv">
+        <entry key="/ODIR/VZ 2021-09-06-norm.csv">
           <value>
             <Attribute>
               <option name="separator" value=";" />
             </Attribute>
           </value>
         </entry>
-        <entry key="/ODIR/VZ_CM53D_2021-09-06_05-36-norm.csv">
+        <entry key="/ODIR/VZ_CM53D_2022-11-01_09-58-norm.csv">
           <value>
             <Attribute>
               <option name="separator" value=";" />
             </Attribute>
           </value>
         </entry>
-        <entry key="/ODIR/VZ_CM53D_2021-12-01_10-11-norm.csv">
+        <entry key="/ODIR/VZ_CM53D_2022-11-30_08-10-norm-mod.csv">
           <value>
             <Attribute>
               <option name="separator" value=";" />
             </Attribute>
           </value>
         </entry>
-        <entry key="/ODIR/VZ_CM53D_2022-01-02_04-25-norm.csv">
+        <entry key="/ODIR/VZ_CM53D_2022-11-30_08-10-norm.csv">
           <value>
             <Attribute>
               <option name="separator" value=";" />
             </Attribute>
           </value>
         </entry>
-        <entry key="/ODIR/VZ_CM53D_2022-07-01_07-33-norm.csv">
+        <entry key="/ODIR/VZ_CM53D_2023-01-01_12-43-norm-mod.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/ODIR/VZ_CM53D_2023-01-01_12-43-norm.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/ODIR/VZ_CM53D_2023-02-02_02-34-norm-mod.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/ODIR/VZ_CM53D_2023-02-02_02-34-norm.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/ODIR/VZ_CM53D_2023-03-02_08-13-norm-mod.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/ODIR/VZ_CM53D_2023-03-02_08-13-norm.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/ODIR/VZ_CM53D_2023-04-01_08-48-norm-mod.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/ODIR/VZ_CM53D_2023-04-01_08-48-norm.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/ODIR/VZ_CM53D_2023-05-01_12-49-norm-mod.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/ODIR/VZ_CM53D_2023-05-01_12-49-norm.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/ODIR/VZ_CM53D_2023-06-06_11-37-norm-mod.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/ODIR/VZ_CM53D_2023-06-06_11-37-norm.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/ODIR/VZ_CM53D_2023-08-01_11-54-norm-mod.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/ODIR/VZ_CM53D_2023-08-01_11-54-norm.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/ODIR/VZ_CM53D_2023-09-01_10-25-norm-mod.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/ODIR/VZ_CM53D_2023-09-01_10-25-norm.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/ODIR/VZ_CM53D_2023-10-03_09-16-norm-mod.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/ODIR/VZ_CM53D_2023-10-03_09-16-norm.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/ODIR/revolut-eur-all-mod.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/ODIR/revolut-eur-all.csv">
           <value>
             <Attribute>
               <option name="separator" value=";" />
