@@ -73,6 +73,10 @@ REGEX = (
     # example: Retrait BM 09:57 CC Matran Numéro de carte: 70097499
     ['^Retrait BM (.{5}) (.*) Numéro de carte: (.*)$', 'Bancomat \\2, \\3',
      '^Retrait BM (.{5}) (.*) Numéro de carte: (.*)$', 'Prélèvement bancomat, \\2, #ValDt# \\1, Carte: \\3'],
+    # Retrait bancomat CHF, COTTENS, 11:53, carte: 535445******8471 (BCF depuis 11.2023)
+    # Retrait bancomat CHF, AVRY-CENTRE 2, 23.11.2023 13:58, carte: Marie
+    ['^Retrait bancomat CHF, (.*), (.*), carte: (.*)$', 'Bancomat \\1, \\2',
+     '^Retrait bancomat CHF, (.*), (.*), carte: (.*)$', 'Prélèvement bancomat, \\1, #ValDt# \\2, Carte: \\3'],
     # example: Retrait BM COTTENS COTTENS CH - 07.01 10:08:56 - xxxxxxxxxxxx8471 - 200 CHF
     ['^Retrait BM (.*) - (.* .*) - (.*) - .* .*$', 'Bancomat \\1',
      '^Retrait BM (.*) - (.* .*) - (.*) - .* (.*)$', 'Prélèvement bancomat \\4 du \\2, Carte: \\3'],
@@ -107,12 +111,15 @@ REGEX = (
     # example: Ordre e-banking 990000004057599200081544690
     ['^Ordre e-banking (.*)$', '\\1',
      '^(Ordre e-banking .*)$', '\\1'],
-    # example: Achats carte de dbit 27.06.2022 10:56 Migros MMM Avry Numro de carte: 5352220006123662
+    # example: Achats carte de débit 27.06.2022 10:56 Migros MMM Avry Numéro de carte: 5352220006123662
     ['^Achats carte de débit .* [0-9]{2}:[0-9]{2} (.*) Numéro de carte: .*', '\\1',
      '(^Achats carte de débit .* [0-9]{2}:[0-9]{2}) .* Numéro de carte: (.*)', '\\1, \\2'],
-    # Bancomat 26.06.2022 09:05 COTTENS Num�ro de carte: 5352220006121518
+    # Bancomat 26.06.2022 09:05 COTTENS Numéro de carte: 5352220006121518
     ['^Bancomat .* .* (.*) Numéro de carte: .*', 'Bancomat \\1',
      '^Bancomat (.* .*) (.*) Numéro de carte: (.*)', 'Prélèvement bancomat \\2, \\1, Carte: \\3'],
+    # Paiement 31.10.2023 15:01 Coop-3585 Numéro de carte: 535445******8471 (BCF depuis 11.2023)
+    ['^Paiement (.{10} .{5}) (.*) Numéro de carte: (.*)$', '\\2',
+     '^Paiement (.{10} .{5}) (.*) Numéro de carte: (.*)$', 'Carte \\3, paiement du \\1'],
     # Paiement - CAL_Bulle_C604, Bulle - 04.01.2023 15:08 - N° carte xxxxxxxxxxxx8471 - 34.50 CHF (BCF depuis 2023)
     ['^Paiement - (.*) - (.* .*) - N° carte (.*) .*', '\\1',
      '^Paiement - (.*) - (.* .*) - N° carte (.*) - .*', 'Carte \\3, paiement du \\2']
@@ -121,6 +128,7 @@ REGEX = (
 # 2ème remplacement pour Texte
 REGEX2 = (
     ['Pharm.-Parf. Sunstor', 'Pharmacie Sunstore'],
+    ['Pharmacie Sunstoree', 'Pharmacie Sunstore'],
     ['Boul. Poste Marchon', 'Boulangerie Marchon, poste'],
     ['Estava.*', 'Estavayer-le-Lac']
 )
@@ -226,7 +234,7 @@ def clean_usage(texte):
 def clean_maestro(texte):
     texte = re.sub('70097416', 'Marie', texte)
     texte = re.sub(r'\d{4}.{8}3662', 'Marie', texte)
-    texte = re.sub('x{12}8471', 'Marie', texte)
+    texte = re.sub('.{12}8471', 'Marie', texte)
     texte = re.sub('70097499', 'Yogi', texte)
     texte = re.sub(r'\d{4}.{8}1518', 'Yogi', texte)
     return texte
