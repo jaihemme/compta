@@ -49,6 +49,16 @@ try:
             Currency = row['Currency']
             Solde = row['Balance'].replace('.', ',')
             Titre, Categorie = env.set_titre_categorie(Destinataire, Montant)
+            # compléments spécifique à Revolut qui contient oeu d'informations
+            if Destinataire == 'Apple':
+                Titre = 'Maison, internet, iCloud espace disque 200 G'
+                Categorie = 'Maison'
+            if Destinataire == 'OpenAI':
+                Titre = 'Loisirs, API de ChatGPT'
+                Categorie = 'Loisirs'
+            if Destinataire == 'HP':
+                Titre = 'Maison, ménage, abonnement imprimante HP'
+                Categorie = 'Maison'
             Usage = row['Type']
             if Usage == 'EXCHANGE' and Destinataire == 'Exchanged to EUR':
                 Titre = 'Transfert, Revolut, Achat de EUR avec CHF'
