@@ -130,6 +130,7 @@ REGEX2 = (
     ['Pharm.-Parf. Sunstor', 'Pharmacie Sunstore'],
     ['Pharmacie Sunstoree', 'Pharmacie Sunstore'],
     ['Boul. Poste Marchon', 'Boulangerie Marchon, poste'],
+    ['Bou.-P.tiss.Marchon', 'Boulangerie Marchon, poste'],
     ['Estava.*', 'Estavayer-le-Lac']
 )
 
@@ -260,7 +261,7 @@ def set_titre_categorie(destinataire, montant):
     valeur = Decimal(montant.replace(',', '.')) * -1
     if 'wingo' in destinataire.lower() and valeur < 40:
         titre = re.sub('internet', 'mobile', titre)
-    if 'KPT' in destinataire and valeur > 974:
+    if 'KPT' in destinataire and valeur > 1300:
         titre = titre + ', prime'
 
     return titre, categorie
