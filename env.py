@@ -9,10 +9,9 @@ ODIR = '/Users/yogi/Library/Mobile Documents/com~apple~CloudDocs/Factures/-Compt
 HEADER = ['Date', 'Source', 'Titre', 'Destinataire', 'Usage', 'Montant', 'Solde', 'Catégorie']
 # (catégorie, tag(s) en minuscules, ...), le premier cas trouvé prime
 CATEGORIES = [
-    # Ca'puccini avant coop
-    ('Loisirs, tea-room', 'tea-room', 'puccini', 'pause'),
+    ('Loisirs, tea-room', 'tea-room', 'pause'),
     # jardin avant coop et migros (alimentation)
-    ('Maison, jardin', 'schilliger', 'landi', 'garden centre', 'bauhaus', 'coop-2018 matran b+l', 'do it garden'),
+    ('Appartement, ménage', 'schilliger', 'landi', 'garden centre', 'bauhaus', 'do it garden'),
     # coiffeuse avant cottens (impôts)
     ('Santé', 'coiffeuse'),
     ('Alimentation, Boucherie', 'boucherie'),
@@ -38,16 +37,16 @@ CATEGORIES = [
     ('Loisirs, tea-room', 'tea-room', 'puccini', 'pause'),
     ('Loisirs, théâtre', 'théâtre', 'équilibre'),
     ('Loisirs, voyage', 'voyage'),
-    ('Maison, assurances', 'etablissement cantonal', 'mobiliar'),
-    ('Maison, hypothèques', 'hypothekenzentrum'),
+    ('Appartement, assurances', 'etablissement cantonal', 'mobiliar'),
+    ('Appartement, hypothèques', 'hypothekenzentrum'),
     # mobile avant internet pour m-budget
-    ('Maison, mobile', 'mobile', 'm-budget'),
-    ('Maison, internet', 'internet', 'wingo'),
-    ('Maison, internet, iCloud espace disque 200 G', 'Apple', 'apple.com/bill'),
-    ('Maison, mobile', 'mobile', 'm-budget'),
-    ('Maison, ménage, abonnement imprimante HP', 'HP', 'hp instant ink', 'hpschweizgm'),
-    ('Maison, ménage', 'pfister', 'renevey', 'livique'),
-    ('Maison, électricité', 'groupe e'),
+    ('Appartement, mobile', 'mobile', 'm-budget'),
+    ('Appartement, internet', 'internet', 'wingo'),
+    ('Appartement, internet, iCloud espace disque 200 G', 'Apple', 'apple.com/bill'),
+    ('Appartement, mobile', 'mobile', 'm-budget'),
+    ('Appartement, ménage, abonnement imprimante HP', 'HP', 'hp instant ink', 'hpschweizgm'),
+    ('Appartement, ménage', 'pfister', 'renevey', 'livique'),
+    ('Appartement, électricité', 'groupe e'),
     ('Rentes, caisse de prévoyance du personnel', 'caisse de prévoyance du personnel'),
     ('Rentes, pensionskasse', 'pensionskasse'),
     ('Santé, KPT', 'kpt'),
