@@ -51,14 +51,14 @@ try:
             Titre, Categorie = env.set_titre_categorie(Destinataire, Montant)
             # compléments spécifique à Revolut qui contient oeu d'informations
             if Destinataire == 'Apple':
-                Titre = 'Maison, internet, iCloud espace disque 200 G'
-                Categorie = 'Maison'
+                Titre = 'Appartement, internet, iCloud espace disque 200 G'
+                Categorie = 'Appartement'
             if Destinataire == 'OpenAI':
                 Titre = 'Loisirs, API de ChatGPT'
                 Categorie = 'Loisirs'
             if Destinataire == 'HP':
-                Titre = 'Maison, ménage, abonnement imprimante HP'
-                Categorie = 'Maison'
+                Titre = 'Appartement, ménage, abonnement imprimante HP'
+                Categorie = 'Appartement'
             Usage = row['Type']
             if Usage == 'EXCHANGE' and Destinataire == 'Exchanged to EUR':
                 Titre = 'Transfert, Revolut, Achat de EUR avec CHF'
