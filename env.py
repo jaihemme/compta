@@ -133,7 +133,16 @@ REGEX2 = (
     ['Estava.*', 'Estavayer-le-Lac']
 )
 
-ns = {'': 'urn:iso:std:iso:20022:tech:xsd:camt.053.001.04'}  # global namespace
+
+ns = None  # namespace global
+
+
+def init_ns(source):
+    global ns
+    if source == 'BCF':
+        ns = {'': 'urn:iso:std:iso:20022:tech:xsd:camt.053.001.08'}
+    elif source == 'VZ':
+        ns = {'': 'urn:iso:std:iso:20022:tech:xsd:camt.053.001.04'}
 
 
 def set_montant(element, solde, ttlamt):

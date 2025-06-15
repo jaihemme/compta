@@ -45,7 +45,11 @@ print("Source des transactions: ", SOURCE)
 FILE = args.filename
 IDIR = env.DIR + SOURCE
 IFILE = IDIR + "/" + FILE
-print("Nom du fichier en entrée:", IFILE)
+print(f"Nom du fichier en entrée: {IFILE}")
+
+env.init_ns(SOURCE)  # global namespace
+ns = env.ns
+print(f"Namespace: {ns}")
 
 transactions = []  # résultat à écrire sur fichier
 
@@ -55,7 +59,6 @@ try:
 
     # get the parent tag
     root = tree.getroot()
-    ns = env.ns  # global namespace
 
     banque = root.findtext('BkToCstmrStmt/Stmt/Acct/Svcr/FinInstnId/Nm', None, ns)
     bic = root.findtext('BkToCstmrStmt/Stmt/Acct/Svcr/FinInstnId/BICFI', None, ns)
